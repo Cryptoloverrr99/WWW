@@ -21,6 +21,18 @@ class MemecoinTracker:
                 
                 valid_count = 0
                 for token in tokens:
+                 if isinstance(token, list):  
+                for subtoken in token:
+            self.process_token(subtoken)
+  else:
+        self.process_token(token)
+
+                def process_token(self, token):
+                 if not isinstance(token, dict):
+                     print(f"Invalid token type: {type(token)}")
+                     return
+    
+                for token in tokens:
                     # Vérification cruciale du type
                     if not isinstance(token, dict):
                         print("Skipping invalid token format")
